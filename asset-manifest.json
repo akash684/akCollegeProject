@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/akCollegeProject/static/css/main.c0d429f3.css",
+    "main.js": "/akCollegeProject/static/js/main.aae8dfe3.js",
+    "static/media/students.svg": "/akCollegeProject/static/media/students.d7a04dc7389c52aabf47e1897e37fa82.svg",
+    "static/media/subjects.svg": "/akCollegeProject/static/media/subjects.ef81f0bbea2b9a3231edcf49d00d7ad5.svg",
+    "static/media/assignment.svg": "/akCollegeProject/static/media/assignment.4def021ac61723cb0479c69bf8efa1ab.svg",
+    "static/media/classroom.png": "/akCollegeProject/static/media/classroom.f472ff2cd754d14669f3.png",
+    "static/media/time.svg": "/akCollegeProject/static/media/time.0e9d36f6356c032a523d5cc2fb081da2.svg",
+    "static/media/designlogin.jpg": "/akCollegeProject/static/media/designlogin.3cac939f195a9e698ba4.jpg",
+    "index.html": "/akCollegeProject/index.html",
+    "main.c0d429f3.css.map": "/akCollegeProject/static/css/main.c0d429f3.css.map",
+    "main.aae8dfe3.js.map": "/akCollegeProject/static/js/main.aae8dfe3.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c0d429f3.css",
+    "static/js/main.aae8dfe3.js"
+  ]
+}
