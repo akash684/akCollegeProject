@@ -22,7 +22,7 @@
     "redux": "^4.2.1",
     "styled-components": "^5.3.10"
   },
-  "homepage": "https://akash684.github.io/SMS",
+  "homepage": "https://akash684.github.io/SMSakCollegeProject",
   "scripts": {
     "start": "react-scripts start",
     "predeploy": "npm run build",
