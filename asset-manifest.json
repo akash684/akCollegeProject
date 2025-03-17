@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/akash684/akcollegeproject.git/static/css/main.c0d429f3.css",
+    "main.js": "/akash684/akcollegeproject.git/static/js/main.d4a558e0.js",
+    "static/media/students.svg": "/akash684/akcollegeproject.git/static/media/students.d7a04dc7389c52aabf47e1897e37fa82.svg",
+    "static/media/subjects.svg": "/akash684/akcollegeproject.git/static/media/subjects.ef81f0bbea2b9a3231edcf49d00d7ad5.svg",
+    "static/media/assignment.svg": "/akash684/akcollegeproject.git/static/media/assignment.4def021ac61723cb0479c69bf8efa1ab.svg",
+    "static/media/classroom.png": "/akash684/akcollegeproject.git/static/media/classroom.f472ff2cd754d14669f3.png",
+    "static/media/time.svg": "/akash684/akcollegeproject.git/static/media/time.0e9d36f6356c032a523d5cc2fb081da2.svg",
+    "static/media/designlogin.jpg": "/akash684/akcollegeproject.git/static/media/designlogin.3cac939f195a9e698ba4.jpg",
+    "index.html": "/akash684/akcollegeproject.git/index.html",
+    "main.c0d429f3.css.map": "/akash684/akcollegeproject.git/static/css/main.c0d429f3.css.map",
+    "main.d4a558e0.js.map": "/akash684/akcollegeproject.git/static/js/main.d4a558e0.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c0d429f3.css",
+    "static/js/main.d4a558e0.js"
+  ]
+}
