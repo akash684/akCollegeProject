@@ -22,11 +22,7 @@
     "redux": "^4.2.1",
     "styled-components": "^5.3.10"
   },
-<<<<<<< HEAD
-"homepage": "https://akash684.github.io/SMS/",
-=======
-  "homepage": "https://github.com/akash684/SMS/",
->>>>>>> a3bb1384f24fe11d5b113d63238c7378e55d0945
+  "homepage": "https://github.com/akash684/akcollegeproject.git",
   "scripts": {
     "start": "react-scripts start",
     "predeploy": "npm run build",
