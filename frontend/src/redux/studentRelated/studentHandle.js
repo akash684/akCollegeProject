@@ -7,11 +7,19 @@ import {
     stuffDone
 } from './studentSlice';
 
+// Helper function to determine the base URL
+const getBaseURL = () => {
+    return process.env.NODE_ENV === 'development'
+        ? process.env.REACT_APP_BASE_URL // Local development
+        : process.env.REACT_APP_RENDER_URL; // Production (Render)
+};
+
 export const getAllStudents = (id) => async (dispatch) => {
     dispatch(getRequest());
 
     try {
-        const result = await axios.get(`${process.env.REACT_APP_BASE_URL||"https://akcollegeproject.onrender.com"||"https://akcollegeproject.onrender.com"}/Students/${id}`);
+        const baseURL = getBaseURL();
+        const result = await axios.get(`${baseURL}/Students/${id}`);
         if (result.data.message) {
             dispatch(getFailed(result.data.message));
         } else {
@@ -20,13 +28,14 @@ export const getAllStudents = (id) => async (dispatch) => {
     } catch (error) {
         dispatch(getError(error));
     }
-}
+};
 
 export const updateStudentFields = (id, fields, address) => async (dispatch) => {
     dispatch(getRequest());
 
     try {
-        const result = await axios.put(`${process.env.REACT_APP_BASE_URL||"https://akcollegeproject.onrender.com"}/${address}/${id}`, fields, {
+        const baseURL = getBaseURL();
+        const result = await axios.put(`${baseURL}/${address}/${id}`, fields, {
             headers: { 'Content-Type': 'application/json' },
         });
         if (result.data.message) {
@@ -37,13 +46,14 @@ export const updateStudentFields = (id, fields, address) => async (dispatch) => 
     } catch (error) {
         dispatch(getError(error));
     }
-}
+};
 
 export const removeStuff = (id, address) => async (dispatch) => {
     dispatch(getRequest());
 
     try {
-        const result = await axios.put(`${process.env.REACT_APP_BASE_URL||"https://akcollegeproject.onrender.com"}/${address}/${id}`);
+        const baseURL = getBaseURL();
+        const result = await axios.put(`${baseURL}/${address}/${id}`);
         if (result.data.message) {
             dispatch(getFailed(result.data.message));
         } else {
@@ -52,4 +62,4 @@ export const removeStuff = (id, address) => async (dispatch) => {
     } catch (error) {
         dispatch(getError(error));
     }
-}
+};
