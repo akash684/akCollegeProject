@@ -12,19 +12,11 @@ import {
     getSubDetailsRequest
 } from './sclassSlice';
 
-// Helper function to determine the base URL
-const getBaseURL = () => {
-    return process.env.NODE_ENV === 'development'
-        ? process.env.REACT_APP_BASE_URL // Local development
-        : process.env.REACT_APP_RENDER_URL; // Production (Render)
-};
-
 export const getAllSclasses = (id, address) => async (dispatch) => {
     dispatch(getRequest());
 
     try {
-        const baseURL = getBaseURL();
-        const result = await axios.get(`${baseURL}/${address}List/${id}`);
+        const result = await axios.get(`${process.env.REACT_APP_BASE_URL||"https://akcollegeproject.onrender.com"||"https://akcollegeproject.onrender.com"}/${address}List/${id}`);
         if (result.data.message) {
             dispatch(getFailedTwo(result.data.message));
         } else {
@@ -33,14 +25,13 @@ export const getAllSclasses = (id, address) => async (dispatch) => {
     } catch (error) {
         dispatch(getError(error));
     }
-};
+}
 
 export const getClassStudents = (id) => async (dispatch) => {
     dispatch(getRequest());
 
     try {
-        const baseURL = getBaseURL();
-        const result = await axios.get(`${baseURL}/Sclass/Students/${id}`);
+        const result = await axios.get(`${process.env.REACT_APP_BASE_URL||"https://akcollegeproject.onrender.com"}/Sclass/Students/${id}`);
         if (result.data.message) {
             dispatch(getFailedTwo(result.data.message));
         } else {
@@ -49,28 +40,26 @@ export const getClassStudents = (id) => async (dispatch) => {
     } catch (error) {
         dispatch(getError(error));
     }
-};
+}
 
 export const getClassDetails = (id, address) => async (dispatch) => {
     dispatch(getRequest());
 
     try {
-        const baseURL = getBaseURL();
-        const result = await axios.get(`${baseURL}/${address}/${id}`);
+        const result = await axios.get(`${process.env.REACT_APP_BASE_URL||"https://akcollegeproject.onrender.com"}/${address}/${id}`);
         if (result.data) {
             dispatch(detailsSuccess(result.data));
         }
     } catch (error) {
         dispatch(getError(error));
     }
-};
+}
 
 export const getSubjectList = (id, address) => async (dispatch) => {
     dispatch(getRequest());
 
     try {
-        const baseURL = getBaseURL();
-        const result = await axios.get(`${baseURL}/${address}/${id}`);
+        const result = await axios.get(`${process.env.REACT_APP_BASE_URL||"https://akcollegeproject.onrender.com"}/${address}/${id}`);
         if (result.data.message) {
             dispatch(getFailed(result.data.message));
         } else {
@@ -79,14 +68,13 @@ export const getSubjectList = (id, address) => async (dispatch) => {
     } catch (error) {
         dispatch(getError(error));
     }
-};
+}
 
 export const getTeacherFreeClassSubjects = (id) => async (dispatch) => {
     dispatch(getRequest());
 
     try {
-        const baseURL = getBaseURL();
-        const result = await axios.get(`${baseURL}/FreeSubjectList/${id}`);
+        const result = await axios.get(`${process.env.REACT_APP_BASE_URL||"https://akcollegeproject.onrender.com"}/FreeSubjectList/${id}`);
         if (result.data.message) {
             dispatch(getFailed(result.data.message));
         } else {
@@ -95,18 +83,17 @@ export const getTeacherFreeClassSubjects = (id) => async (dispatch) => {
     } catch (error) {
         dispatch(getError(error));
     }
-};
+}
 
 export const getSubjectDetails = (id, address) => async (dispatch) => {
     dispatch(getSubDetailsRequest());
 
     try {
-        const baseURL = getBaseURL();
-        const result = await axios.get(`${baseURL}/${address}/${id}`);
+        const result = await axios.get(`${process.env.REACT_APP_BASE_URL||"https://akcollegeproject.onrender.com"}/${address}/${id}`);
         if (result.data) {
             dispatch(getSubDetailsSuccess(result.data));
         }
     } catch (error) {
         dispatch(getError(error));
     }
-};
+}

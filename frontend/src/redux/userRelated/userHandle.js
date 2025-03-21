@@ -14,19 +14,11 @@ import {
     getError,
 } from './userSlice';
 
-// Helper function to determine the base URL
-const getBaseURL = () => {
-    return process.env.NODE_ENV === 'development'
-        ? process.env.REACT_APP_BASE_URL // Local development.
-        : process.env.REACT_APP_RENDER_URL; // Production (Render)
-};
-
 export const loginUser = (fields, role) => async (dispatch) => {
     dispatch(authRequest());
 
     try {
-        const baseURL = getBaseURL();
-        const result = await axios.post(`${baseURL}/${role}Login`, fields, {
+        const result = await axios.post(`${process.env.REACT_APP_BASE_URL||"https://akcollegeproject.onrender.com"}/${role}Login`, fields, {
             headers: { 'Content-Type': 'application/json' },
         });
         if (result.data.role) {
@@ -35,87 +27,92 @@ export const loginUser = (fields, role) => async (dispatch) => {
             dispatch(authFailed(result.data.message));
         }
     } catch (error) {
-        const errorMessage = error.response?.data?.message || error.message || 'Network Error';
-        dispatch(authError(errorMessage));
+        dispatch(authError(error));
     }
 };
 
-// Register User
 export const registerUser = (fields, role) => async (dispatch) => {
     dispatch(authRequest());
 
     try {
-        const baseURL = getBaseURL();
-        const result = await axios.post(`${baseURL}/${role}Reg`, fields, {
+        const result = await axios.post(`${process.env.REACT_APP_BASE_URL||"https://akcollegeproject.onrender.com"}/${role}Reg`, fields, {
             headers: { 'Content-Type': 'application/json' },
         });
         if (result.data.schoolName) {
             dispatch(authSuccess(result.data));
-        } else if (result.data.school) {
+        }
+        else if (result.data.school) {
             dispatch(stuffAdded());
-        } else {
+        }
+        else {
             dispatch(authFailed(result.data.message));
         }
     } catch (error) {
-        const errorMessage = error.response?.data?.message || error.message || 'Network Error';
-        dispatch(authError(errorMessage));
+        dispatch(authError(error));
     }
 };
 
-// Logout User
 export const logoutUser = () => (dispatch) => {
     dispatch(authLogout());
 };
 
-// Get User Details
 export const getUserDetails = (id, address) => async (dispatch) => {
     dispatch(getRequest());
 
     try {
-        const baseURL = getBaseURL();
-        const result = await axios.get(`${baseURL}/${address}/${id}`);
+        const result = await axios.get(`${process.env.REACT_APP_BASE_URL||"https://akcollegeproject.onrender.com"}/${address}/${id}`);
         if (result.data) {
             dispatch(doneSuccess(result.data));
         }
     } catch (error) {
-        const errorMessage = error.response?.data?.message || error.message || 'Network Error';
-        dispatch(getError(errorMessage));
+        dispatch(getError(error));
     }
-};
+}
 
-// Delete User
+// export const deleteUser = (id, address) => async (dispatch) => {
+//     dispatch(getRequest());
+
+//     try {
+//         const result = await axios.delete(`${process.env.REACT_APP_BASE_URL}/${address}/${id}`);
+//         if (result.data.message) {
+//             dispatch(getFailed(result.data.message));
+//         } else {
+//             dispatch(getDeleteSuccess());
+//         }
+//     } catch (error) {
+//         dispatch(getError(error));
+//     }
+// }
+
+
 export const deleteUser = (id, address) => async (dispatch) => {
     dispatch(getRequest());
-    dispatch(getFailed("Sorry, the delete function has been disabled for now."));
-};
+    dispatch(getFailed("Sorry the delete function has been disabled for now."));
+}
 
-// Update User
 export const updateUser = (fields, id, address) => async (dispatch) => {
     dispatch(getRequest());
 
     try {
-        const baseURL = getBaseURL();
-        const result = await axios.put(`${baseURL}/${address}/${id}`, fields, {
+        const result = await axios.put(`${process.env.REACT_APP_BASE_URL||"https://akcollegeproject.onrender.com"}/${address}/${id}`, fields, {
             headers: { 'Content-Type': 'application/json' },
         });
         if (result.data.schoolName) {
             dispatch(authSuccess(result.data));
-        } else {
+        }
+        else {
             dispatch(doneSuccess(result.data));
         }
     } catch (error) {
-        const errorMessage = error.response?.data?.message || error.message || 'Network Error';
-        dispatch(getError(errorMessage));
+        dispatch(getError(error));
     }
-};
+}
 
-// Add Stuff
 export const addStuff = (fields, address) => async (dispatch) => {
     dispatch(authRequest());
 
     try {
-        const baseURL = getBaseURL();
-        const result = await axios.post(`${baseURL}/${address}Create`, fields, {
+        const result = await axios.post(`${process.env.REACT_APP_BASE_URL||"https://akcollegeproject.onrender.com"}/${address}Create`, fields, {
             headers: { 'Content-Type': 'application/json' },
         });
 
@@ -125,7 +122,6 @@ export const addStuff = (fields, address) => async (dispatch) => {
             dispatch(stuffAdded(result.data));
         }
     } catch (error) {
-        const errorMessage = error.response?.data?.message || error.message || 'Network Error';
-        dispatch(authError(errorMessage));
+        dispatch(authError(error));
     }
 };
