@@ -1,5 +1,5 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
+import React from 'react';
+import { HashRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { useSelector } from 'react-redux';
 import Homepage from './pages/Homepage';
 import AdminDashboard from './pages/admin/AdminDashboard';
@@ -26,28 +26,15 @@ const App = () => {
 
           <Route path="/Adminregister" element={<AdminRegisterPage />} />
 
-          <Route path='*' element={<Navigate to="/" />} />
-        </Routes>}
-
-      {currentRole === "Admin" &&
-        <>
-          <AdminDashboard />
-        </>
+          <Route path="*" element={<Navigate to="/" />} />
+        </Routes>
       }
 
-      {currentRole === "Student" &&
-        <>
-          <StudentDashboard />
-        </>
-      }
-
-      {currentRole === "Teacher" &&
-        <>
-          <TeacherDashboard />
-        </>
-      }
+      {currentRole === "Admin" && <AdminDashboard />}
+      {currentRole === "Student" && <StudentDashboard />}
+      {currentRole === "Teacher" && <TeacherDashboard />}
     </Router>
-  )
-}
+  );
+};
 
-export default App
+export default App;
