@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/akcollegeproject/static/css/main.c0d429f3.css",
-    "main.js": "/akcollegeproject/static/js/main.d15b3731.js",
+    "main.js": "/akcollegeproject/static/js/main.21c82666.js",
     "static/media/students.svg": "/akcollegeproject/static/media/students.d7a04dc7389c52aabf47e1897e37fa82.svg",
     "static/media/subjects.svg": "/akcollegeproject/static/media/subjects.ef81f0bbea2b9a3231edcf49d00d7ad5.svg",
     "static/media/assignment.svg": "/akcollegeproject/static/media/assignment.4def021ac61723cb0479c69bf8efa1ab.svg",
@@ -10,10 +10,10 @@
     "static/media/designlogin.jpg": "/akcollegeproject/static/media/designlogin.3cac939f195a9e698ba4.jpg",
     "index.html": "/akcollegeproject/index.html",
     "main.c0d429f3.css.map": "/akcollegeproject/static/css/main.c0d429f3.css.map",
-    "main.d15b3731.js.map": "/akcollegeproject/static/js/main.d15b3731.js.map"
+    "main.21c82666.js.map": "/akcollegeproject/static/js/main.21c82666.js.map"
   },
   "entrypoints": [
     "static/css/main.c0d429f3.css",
-    "static/js/main.d15b3731.js"
+    "static/js/main.21c82666.js"
   ]
 }
